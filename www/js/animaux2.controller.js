@@ -22,6 +22,8 @@ angular.module('app')
       }, true);
       if (aC.page > pageEnd) {
 
+        document.getElementById("bravo").play();
+
          aC.showAlert = function() {
             var alertPopup = $ionicPopup.alert({
                title: 'Félicitations!',
@@ -35,27 +37,20 @@ angular.module('app')
          $timeout(function() {
             aC.showAlert();
          }, 1000);
-
       }
 
-
-
       aC.dragEnter = function(draggable, droppable) {
-
          console.log('dragenter');
          console.log(draggable);
          console.log(droppable);
-
-
-
-
       }
 
       aC.dragEnd = function(draggable, droppable) {
 
          if (draggable.dragId === droppable.dropId && (draggable.dragId != undefined || droppable.dropId != undefined) && (draggable.dragId != null || droppable.dropId != null)) {
 
-
+          if(aC.page != 7)
+           document.getElementById("bien").play();
 
             console.log('drag end');
             draggable.addClass('hide');
@@ -68,8 +63,6 @@ angular.module('app')
                animation: 'fade-in'
             });
 
-
-
             $timeout(function() {
                $ionicLoading.hide();
             }, 1000);
@@ -78,7 +71,8 @@ angular.module('app')
             console.log(droppable);
 
          }
-
+         else
+          document.getElementById("essaie").play();
 
 
 

@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('lettresController', function($scope, $ionicHistory, $state, $ionicViewSwitcher) {
+.controller('lettresController', function($scope, $ionicHistory, $state, $ionicViewSwitcher,$timeout, $ionicLoading) {
 
   lC = this;
   lC.back = function() {
@@ -7,7 +7,16 @@ angular.module('app')
 		$state.go('accueil');
 	}
 
-	$scope.rand_lettres = String.fromCharCode(65+(Math.floor(Math.random() * 26)+1));
+  lC.lettreplay = function() {
+    var audio = document.getElementById('sons_lettre');
+        audio.play();
+  }
+
+   lC.animauxPlay = function() {
+    var audio = document.getElementById('audio_ex');
+        audio.play();
+  }
+
 
 	lC.drop = function(draggable, droppable) {
 		               /* console.log('conditoin ok');*/
@@ -17,7 +26,7 @@ angular.module('app')
            }
         }
 
-      lC.dragEnd = function(draggable, droppable) {
+  lC.dragEnd = function(draggable, droppable) {
          
            if(angular.element(draggable)[0].dragId === angular.element(droppable)[0].dropId){
                     console.log('drag end');
@@ -34,9 +43,6 @@ angular.module('app')
                         }, 1000);
                      location.reload();             
            }
-            console.log('drop');
-            console.log(draggable);
-             console.log(droppable);
         }
  
  });

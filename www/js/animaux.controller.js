@@ -6,18 +6,13 @@ angular.module('app')
       aC.page = $stateParams.page;
       aC.animauxPlay = function(event) {
          angular.element(event.currentTarget.previousElementSibling.play());
-
       }
 
-
-
       document.addEventListener('play', function(e) {
-
          for (var i = 0, len = audios.length; i < len; i++) {
             if (audios[i] != e.target) {
                audios[i].load();
             }
-
          }
       }, true);
       if (aC.page > pageEnd) {
@@ -25,8 +20,6 @@ angular.module('app')
             page: 1
          });
       }
-
-
 
       aC.dragEnter = function(draggable, droppable) {
 
@@ -40,7 +33,8 @@ angular.module('app')
 
          if (angular.element(draggable)[0].dragId === angular.element(droppable)[0].dropId) {
 
-
+          if(aC.page != 7)
+          document.getElementById("bien").play();
             console.log('drag end');
             draggable.addClass('hide');
             aC.page++;
@@ -52,32 +46,22 @@ angular.module('app')
                animation: 'fade-in'
             });
 
-
-
             $timeout(function() {
                $ionicLoading.hide();
             }, 1000);
 
 
          }
+         else
+          document.getElementById("essaie").play();
          console.log('drop');
          console.log(draggable);
          console.log(droppable);
-
-
-
-
       }
 
-
       aC.back = function() {
-
-
          $ionicViewSwitcher.nextDirection('back');
-
          $state.go('accueil');
-
-
       }
 
       aC.getAnimaux = function() {
@@ -94,7 +78,6 @@ angular.module('app')
 
                aC.animalData = data;
                console.log('Data après sort : ', data);
-               
 
                /*  var nombre1 = Math.floor(Math.random() * data.length),
                             nombre2 = Math.floor(Math.random() * data.length),

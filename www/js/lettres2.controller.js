@@ -1,5 +1,5 @@
 angular.module('app')
-   .controller('lettres2Controller', function($scope, $ionicHistory, $ionicPopup,$state, $stateParams, $ionicViewSwitcher, $http, $sce, $ionicLoading, $timeout) {
+   .controller('lettres2Controller', function($scope, $ionicHistory,$ionicPopup, $state, $stateParams, $ionicViewSwitcher, $http, $sce, $ionicLoading, $timeout) {
 
       lC = this;
       lC.page = $stateParams.page;
@@ -12,6 +12,8 @@ angular.module('app')
       }
 
       if (lC.page > pageEnd) {
+
+         document.getElementById("bravo").play();
 
          lC.showAlert = function() {
             var alertPopup = $ionicPopup.alert({
@@ -44,7 +46,6 @@ angular.module('app')
             if (audios[i] != e.target) {
                audios[i].load();
             }
-
          }
       }, true);
       lC.dragEnter = function(draggable, droppable) {
@@ -62,8 +63,8 @@ angular.module('app')
       lC.dragEnd = function(draggable, droppable) {
        if (draggable.dragId === droppable.dropId && (draggable.dragId != undefined || droppable.dropId != undefined) && (draggable.dragId != null || droppable.dropId != null)) {
 
-
-
+                  if(lC.page != 7)
+                     document.getElementById("bien").play();
                   console.log('drag end');
                   draggable.addClass('hide');
                   lC.page++;
@@ -75,8 +76,6 @@ angular.module('app')
                      animation: 'fade-in'
                   });
 
-
-
                   $timeout(function() {
                      $ionicLoading.hide();
                   }, 1000);
@@ -85,14 +84,9 @@ angular.module('app')
                   console.log(droppable);
 
                }
-
+               else
+                  document.getElementById("essaie").play();
       }
-
-    
-   
-      
-
-      
 
       lC.getAnimaux = function() {
 
@@ -132,9 +126,6 @@ angular.module('app')
          lC.reponse_cri=  $sce.trustAsResourceUrl('sons/' + lC.reponse.cri);
          lC.solution1_cri =  $sce.trustAsResourceUrl('sons/' + lC.solution1.cri);
          lC.solution2_cri =  $sce.trustAsResourceUrl('sons/' + lC.solution2.cri);
-
-
-
             })
             .error(function() {
                console.log('Fichier pas trouvé : animal.json');

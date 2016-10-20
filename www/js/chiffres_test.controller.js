@@ -8,6 +8,8 @@ angular.module('app')
       if (ctC.page > 7) {
          //page = 0;
 
+         document.getElementById("bravo").play();
+
          ctC.showAlert = function() {
             var alertPopup = $ionicPopup.alert({
                title: 'Félicitations!',
@@ -101,7 +103,8 @@ angular.module('app')
 
          if (draggable.dragId === droppable.dropId && (draggable.dragId != undefined || droppable.dropId != undefined) && (draggable.dragId != null || droppable.dropId != null)) {
 
-
+            if(ctC.page != 7)
+            document.getElementById("bien").play();
 
             console.log('drag end');
             draggable.addClass('hide');
@@ -114,8 +117,6 @@ angular.module('app')
                animation: 'fade-in'
             });
 
-
-
             $timeout(function() {
                $ionicLoading.hide();
             }, 1000);
@@ -124,6 +125,8 @@ angular.module('app')
             console.log(droppable);
 
          }
+         else
+            document.getElementById("essaie").play();
 
 
 
