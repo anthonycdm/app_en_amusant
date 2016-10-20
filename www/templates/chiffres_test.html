@@ -1,0 +1,39 @@
+<ion-header-bar align-title="center" class="">
+   <button class="button button-icon icon ion-arrow-left-c flat" ng-click="chiffrestestCtrl.back()"></button>
+   <h1 class="title title-center header-item">Chiffres</h1>
+
+</ion-header-bar>
+
+<div class="content has-header chiffres_test" ng-init="chiffrestestCtrl.getChiffres()">
+   <div drag-and-drop class="drag-container" on-drag-enter="chiffrestestCtrl.dragEnter(draggable, droppable)" on-drag-end="chiffrestestCtrl.dragEnd(draggable, droppable)">
+      <div class="maths">
+         <div class="chiffre1"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="i in chiffrestestCtrl.getImgGenerated(chiffre1)  track by $index">
+         </div>
+         <span class="operation col-20">+</span>
+         <drop-spot max-items="1" class="drop-spot" drop-id="reponse">
+            <div class="drag col-40"></div>
+         </drop-spot>
+         <div class="operation">=</div>
+         <div class="resultat"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="j in chiffrestestCtrl.getImgGenerated(resultat)  track by $index">
+         </div>
+      </div>
+
+
+
+      <div class="reponses">
+         <div drag-item drag-enabled="true" class="drag-item reponse" drag-id="reponse">
+            <div id="reponse"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="k in chiffrestestCtrl.getImgGenerated(reponse)  track by $index">
+            </div>
+         </div>
+         <div drag-item drag-enabled="true" class="drag-item solution1" drag-id="solution1">
+            <div id="solution1"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="l in chiffrestestCtrl.getImgGenerated(solution1)  track by $index">
+            </div>
+         </div>
+         <div drag-item drag-enabled="true" class="drag-item solution2" drag-id="solution2">
+            <div id="solution2"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="m in chiffrestestCtrl.getImgGenerated(solution2)  track by $index">
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>

@@ -1,0 +1,102 @@
+@font-face{
+
+ font-family: "Party";
+  src: url("../font/party_by_tom/PartybyTom.TTF");
+}
+ * {
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+a{
+
+	text-decoration: none;
+	color: #000;
+}
+h1.title{color:#fff;}
+.button_menu p{
+
+    font-size: 1.5em;
+}
+.button_menu{
+	margin: 0 auto 8%;
+    display: block;
+    text-align: center;
+}
+
+h2.title{
+        text-align: center;
+    font-size: 1.7em;
+    margin-top: 5%;
+}
+
+.button_menu img{
+
+	max-width: 200px;
+    width: 50%;
+}
+ .view-container {
+    position: relative;
+    
+}
+.accueil,.pane,.bar-header
+{
+
+	background: #c0ff70;
+	/*#fffc8d*/
+	/*#ffb38d*/
+}
+.bar-header button
+{
+
+	color: #fff;
+	/*#fffc8d*/
+	/*#ffb38d*/
+}
+
+.drop-content{
+
+    margin: 30px 0px;
+}
+/*.accueil .buttons,.has-header{
+
+	    width: 60%;
+    height: 60%;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.has-header{
+	width: 70%;
+}*/
+.has-header {
+    top: calc(33% - 44px);
+
+}
+
+
+
+.bar .button.button-icon, .bar button.button-icon {
+    color: #fff;
+}
+
+.bar .button.button-icon .icon:before, .bar .button.button-icon:before, .bar .button.button-icon.icon-left:before, .bar .button.button-icon.icon-right:before, .bar button.button-icon .icon:before, .bar button.button-icon:before, .bar button.button-icon.icon-left:before, .bar button.button-icon.icon-right:before {
+    font-size: 3em;
+}
+.accueil .buttons{
+
+	    width: 60%;
+    height: 70%;
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

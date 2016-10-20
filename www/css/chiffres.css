@@ -1,0 +1,85 @@
+
+/*.chiffres {
+	margin-top : 33%;
+}*/
+
+.picture{
+	/*width: 20%;
+	height : 50%;*/
+	vertical-align: middle;
+}
+.chiffres_test .drop-content{
+ 
+ margin:0;
+ display: block;
+ min-height: 285px;
+
+}
+.chiffres_test .drop-spot {
+	    width: 100px;
+    min-height: 285px;
+    border: 2px solid black;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.chiffre1 img,.resultat img,#solution1 img,#solution2 img,#reponse img{
+	    display: block;
+    max-height: 61px;
+    width: auto;
+
+}
+.reponses{
+	margin-top: 30px;
+    text-align: center;
+}
+.chiffres_test .drag-item {
+	display: inline-block;
+    vertical-align: top;
+    margin: 0 20px;
+
+}
+.chiffre1,.resultat{
+	display: inline-block;
+    vertical-align: middle;
+
+}
+.res {
+	/*width: 50%;
+	height: 100%;*/
+	display: inline-block;
+}
+
+.chiffres.has-header {
+    text-align: center;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  margin-top: 10%;
+  border-left: 40px solid blue;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.chiffres_test.has-header {
+    
+     text-align: center;
+    height: calc(100% - 55px);
+    top: 45px;
+    overflow-y: auto; 
+    position: relative;
+    width: 100%;
+}
+
+.operation {
+	font-size : 150%;
+	display: inline-block;
+	vertical-align: middle;
+
+}

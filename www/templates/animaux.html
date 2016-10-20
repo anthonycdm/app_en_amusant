@@ -1,0 +1,28 @@
+<ion-header-bar align-title="center" class="">
+   <button class="button button-icon icon ion-arrow-left-c flat" ng-click="animauxCtrl.back()"></button>
+   <h1 class="title title-center header-item">Animaux</h1>
+
+</ion-header-bar>
+
+<div class="content has-header animaux" ng-init="animauxCtrl.getAnimaux()">
+
+   <div drag-and-drop class="drag-container" on-drag-enter="animauxCtrl.dragEnter(draggable, droppable)" on-drag-end="animauxCtrl.dragEnd(draggable, droppable)">
+
+      <div class="animal_container" ng-repeat="animal in animauxCtrl.animalData|limitTo:2">
+         <div drag-item drag-enabled="true" class="drag-item {{animal.nom}}" drag-id="{{'animal'+animal.id}}">
+            <div id="animal{{animal.id}}" class="animal-drag "><img ng-src="img/{{animal.nom}}.png" alt="{{animal.nom}}">
+            </div>
+         </div>
+
+         <drop-spot max-items="1" class="drop-spot" drop-id="{{'animal'+animal.id}}">
+            <div id="son{{animal.id}}">
+               <audio id="{{'audio'+animal.id}}" ng-src="{{'sons/'+animal.cri | trustAsResourceUrl}}" autostart="false" class="{{animal.nom}}">
+
+               </audio>
+               <a data-ng-click="animauxCtrl.animauxPlay($event)"><i class="ion-volume-medium"></i></a>
+            </div>
+         </drop-spot>
+
+      </div>
+   </div>
+</div>

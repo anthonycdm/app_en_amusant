@@ -1,0 +1,16 @@
+<ion-header-bar align-title="center" class="">
+	<button class="button button-icon icon ion-arrow-left-c flat" ng-click="lettresCtrl.back()"></button>
+  <h1 class="title title-center header-item">Lettres</h1>  
+</ion-header-bar>
+<div class="content has-header lettres">
+ <div drag-and-drop class="drag-container" on-drag-enter="lettresCtrl.drop(draggable,droppable)" on-drag-end="lettresCtrl.dragEnd(draggable,droppable)">
+ <center>
+    <drop-spot max-items="1" class="drop-spot" drop-id="animal1">      
+	<div class="lettre">A</div>
+	</drop-spot>
+	<div drag-item drag-enabled="true"  class="ex_animal drag-item {{lettresCtrl.animal1}}" drag-id="animal1">
+	<div class="exemple_lettre"><img ng-src="img/aigle.png" /></div>
+	</div>
+	</center>
+</div>
+</div>
