@@ -3,7 +3,6 @@
    <h1 class="title title-center header-item">Animaux</h1>
 
 </ion-header-bar>
-
 <div class="content has-header animaux" ng-init="animauxCtrl.getAnimaux()">
 
    <div drag-and-drop class="drag-container" on-drag-enter="animauxCtrl.dragEnter(draggable, droppable)" on-drag-end="animauxCtrl.dragEnd(draggable, droppable)">
@@ -22,7 +21,6 @@
                <a data-ng-click="animauxCtrl.animauxPlay($event)"><i class="ion-volume-medium"></i></a>
             </div>
          </drop-spot>
-
       </div>
    </div>
 </div>
