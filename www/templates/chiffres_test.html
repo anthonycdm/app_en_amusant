@@ -21,20 +21,13 @@
 
 
       <div class="reponses">
-         <div drag-item drag-enabled="true" class="drag-item reponse" drag-id="reponse">
-            <div id="reponse"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="k in chiffrestestCtrl.getImgGenerated(reponse)  track by $index">
+
+      <div drag-item drag-enabled="true" class="drag-item" drag-id="{{chiffrestestCtrl.dragIdArray[$index]}}" ng-repeat="chiffres in chiffrestestCtrl.pos_array ">
+            <div id="{{chiffrestestCtrl.dragIdArray[$index]}}"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="k in chiffrestestCtrl.getImgGenerated(chiffres)  track by $index">
             </div>
-         </div>
-         <div drag-item drag-enabled="true" class="drag-item solution1" drag-id="solution1">
-            <div id="solution1"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="l in chiffrestestCtrl.getImgGenerated(solution1)  track by $index">
-            </div>
-         </div>
-         <div drag-item drag-enabled="true" class="drag-item solution2" drag-id="solution2">
-            <div id="solution2"><img ng-src="img/{{chiffrestestCtrl.randomImgChiffres}}.png" alt="" ng-repeat="m in chiffrestestCtrl.getImgGenerated(solution2)  track by $index">
-            </div>
-         </div>
+      </div>
+        
 
       </div>
    </div>
 </div>
-<div class="pagination">{{chiffrestestCtrl.page}}/7</div>

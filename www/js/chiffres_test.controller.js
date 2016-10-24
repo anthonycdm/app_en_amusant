@@ -53,9 +53,27 @@ angular.module('app')
          $scope.reponse = arr[1];
          $scope.solution1 = arr[2];
          $scope.solution2 = arr[3];
+         var pos_array = [arr[1],arr[2],arr[3]];
+
+         pos_array = pos_array.sort(function() {
+                  return Math.floor(Math.random() *  pos_array.length);
+               });
+         ctC.pos_array = pos_array;
          ctC.getImgGenerated = function(num) {
             return new Array(num);
          }
+         var dragIdArray = new Array();
+         dragIdArray[pos_array.indexOf(arr[1])] = 'reponse';
+         dragIdArray[pos_array.indexOf(arr[2])] = 'solution1';
+         dragIdArray[pos_array.indexOf(arr[3])] = 'solution2'; 
+         ctC.dragIdArray = dragIdArray;
+
+         console.log('Pos Array '+ pos_array);
+         console.log(ctC.dragIdArray)
+         console.log(pos_array.indexOf(arr[3]));
+
+         
+        
          $http.get('js/animal.json')
             .success(function(data) {
                var randomImgChiffres = Math.floor(Math.random() * (data.length - 1) + 1);
@@ -69,20 +87,7 @@ angular.module('app')
          $scope.resultat = $scope.chiffre1 + $scope.reponse;
 
 
-         switch (pos) {
-
-            case 1: // la reponse est la premiere
-               console.log('cas 1');
-               break;
-            case 2: // la reponse est la deuxième
-               console.log('cas 2');
-               break;
-            case 3: // la reponse est la troisième
-               console.log('cas 3');
-               break;
-
-
-         }
+   
 
 
       }
