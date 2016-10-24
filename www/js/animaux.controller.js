@@ -1,5 +1,5 @@
 angular.module('app')
-   .controller('animauxController', function($scope, $ionicHistory, $state, $stateParams, $ionicViewSwitcher, $http, $sce, $ionicLoading, $timeout) {
+   .controller('animauxController', function($scope, $ionicHistory, $state, $stateParams,$ionicPopup, $ionicViewSwitcher, $http, $sce, $ionicLoading, $timeout) {
       aC = this;
       var audios = document.getElementsByTagName('audio');
       var pageEnd = 7;
@@ -24,39 +24,75 @@ angular.module('app')
       aC.dragEnter = function(draggable, droppable) {
 
          console.log('drag reussi');
-         console.log(draggable);
-         console.log(droppable);
-
+       //  console.log(draggable);
+       
+console.log(angular.element(droppable)[0])
       }
-
+   
+      aC.dragLeave = function(draggable, droppable) {
+      }
+  
       aC.dragEnd = function(draggable, droppable) {
 
-         if (angular.element(draggable)[0].dragId === angular.element(droppable)[0].dropId) {
 
-          if(aC.page != 7)
+         if (angular.element(draggable)[0].dragId === angular.element(droppable)[0].dropId ) {
+
+          if(aC.page != pageEnd){
           document.getElementById("bien").play();
             console.log('drag end');
-            draggable.addClass('hide');
-            aC.page++;
-            $state.go($state.current, {
+            angular.element(draggable)[0].addClass('hide');
+            //angular.element(droppable)[0].addClass('hide');
+       if ( document.querySelectorAll('.drag-item.hide').length == 2) {
+
+
+
+
+           aC.showAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+               title: 'Bravo!',
+               template: '',
+                buttons: [{ text: 'Suivant' }]
+            });
+
+             $timeout(function() {
+                alertPopup.close(); 
+                
+             }, 3000);
+  
+
+            alertPopup.then(function(res) {
+                 aC.page++;
+            
+               $state.go($state.current, {
                page: aC.page++
             });
 
-            $ionicLoading.show({
+          
+            });
+         };
+
+         $ionicLoading.show({
                animation: 'fade-in'
             });
+         $timeout(function() {
+            $ionicLoading.hide();
 
-            $timeout(function() {
-               $ionicLoading.hide();
-            }, 1000);
+            aC.showAlert();
+         }, 1000);
+
+
+
+         
+
+         }
+
+          }
 
 
          }
-         else
-          document.getElementById("essaie").play();
+         else{document.getElementById("essaie").play();}
          console.log('drop');
-         console.log(draggable);
-         console.log(droppable);
+         
       }
 
       aC.back = function() {
@@ -67,7 +103,6 @@ angular.module('app')
       aC.getAnimaux = function() {
          $http.get('js/animal.json')
             .success(function(data) {
-               console.log('Data avant sort : ', data);
 
                $timeout(function() {
                   $ionicLoading.hide();
@@ -76,45 +111,18 @@ angular.module('app')
                   return 0.5 - Math.random()
                });
 
-               aC.animalData = data;
-               console.log('Data après sort : ', data);
-
-               /*  var nombre1 = Math.floor(Math.random() * data.length),
-                            nombre2 = Math.floor(Math.random() * data.length),
-                            random_boolean = Math.random() >= 0.5 ? 0 : 1,
-                            id_son1 = document.querySelector('.animal1'),
-                            id_son2 = document.querySelector('.animal2');
+               aC.animalData = data.slice(0, 2);
+               aC.soundData = aC.animalData;
+               aC.soundData =  data.slice(0, 2).sort(function() {
+                  return Math.floor(Math.random() *  data.slice(0, 2).length)
+               });
 
 
+              
+               console.log(aC.animalData )
+               console.log(aC.soundData )
 
-                        console.log(random_boolean);
-                        console.log(id_son1);
-                        while (nombre1 === nombre2) {
-
-                            nombre2 = Math.floor(Math.random() * data.length);
-
-                        }
-
-
-                        aC.animal1 = data[nombre1].nom;
-                        aC.animal2 = data[nombre2].nom;
-                        aC.son1 = $sce.trustAsResourceUrl('sons/' + data[nombre1].cri);
-                        aC.son2 = $sce.trustAsResourceUrl('sons/' + data[nombre2].cri);
-
-                         if (random_boolean === 1){
-
-                            id_son1.className += ' reverse';
-                            var sounds = document.querySelector('.sound_container');
-                            sounds.insertBefore(id_son2,id_son1);
-                            
-                        }
-                        else if (random_boolean === 0){
-
-
-                            id_son1.className = 'drop-spot animal1';
-                            
-
-                        }*/
+              
 
             })
             .error(function() {

@@ -55,9 +55,16 @@ h2.title{
 	/*#ffb38d*/
 }
 
-.drop-content{
+.drop-content,.drop-content div,.drop-content div a{
 
-    margin: 30px 0px;
+   /* margin: 30px 0px;*/
+    display: block;
+    height: 100%;
+}
+
+.drop-content div a i{
+    display: block;
+    line-height: 200px;
 }
 /*.accueil .buttons,.has-header{
 
@@ -91,7 +98,7 @@ h2.title{
 .accueil .buttons{
 
 	    width: 60%;
-    height: 70%;
+    height: 80%;
     overflow: hidden;
     margin: auto;
     position: absolute;

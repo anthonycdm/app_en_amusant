@@ -4,30 +4,36 @@
 </ion-header-bar>
 <div class="content has-header lettres" ng-init="lettres2Ctrl.getAnimaux()">
    <div drag-and-drop class="drag-container" on-drag-enter="lettres2Ctrl.dragEnter(draggable,droppable)" on-drag-end="lettres2Ctrl.dragEnd(draggable,droppable)">
+
+      <center>
          <drop-spot max-items="1" class="drop-spot" drop-id="reponse">
             <audio id="audio_lettre" ng-src="{{lettres2Ctrl.lettre_son}}" autostart="false" class=""></audio>
             <a data-ng-click="lettres2Ctrl.lettrePlay($event)" class="lettre">
                 {{lettres2Ctrl.rand_lettres}}
             </a>
          </drop-spot>
-         <div class="contenu_choix">
-            <div drag-item drag-enabled="true" class="drag-item {{lettres2Ctrl.reponse.nom}}" drag-id="reponse">
-                <audio id="audio1" ng-src="{{lettres2Ctrl.reponse_cri}}" autostart="false" class=""></audio>
-                <a data-ng-click="lettres2Ctrl.animauxPlay($event)" class="animaux_lettre"><img ng-src="img/{{lettres2Ctrl.reponse.nom}}.png">
-                 
-               </a>
-            </div>
-            <div drag-item drag-enabled="true" class="drag-item {{lettres2Ctrl.solution1.nom}}" drag-id="animal1">
-               <audio id="audio2" ng-src="{{lettres2Ctrl.solution1_cri}}" autostart="false" class=""></audio> 
-               <a data-ng-click="lettres2Ctrl.animauxPlay($event)" class="animaux_lettre" ><img ng-src="img/{{lettres2Ctrl.solution1.nom}}.png">
-                 
-               </a>
-            </div>
-            <div drag-item drag-enabled="true" class="drag-item {{lettres2Ctrl.solution2.nom}}" drag-id="animal2">
-               <audio id="audio3" ng-src="{{lettres2Ctrl.solution2_cri}}" autostart="false" class=""></audio>
-               <a data-ng-click="lettres2Ctrl.animauxPlay($event)" class="animaux_lettre" ><img ng-src="img/{{lettres2Ctrl.solution2.nom}}.png">
-                                 </a>
-            </div>
+         <div drag-item drag-enabled="true" class="drag-item  {{lettres2Ctrl.reponse.nom}}" drag-id="reponse">
+            <audio id="audio1" ng-src="{{lettres2Ctrl.reponse_cri}}" autostart="false" class=""></audio>
+            <a data-ng-click="lettres2Ctrl.animauxPlay($event)" class="animaux_lettre"><img ng-src="img/{{lettres2Ctrl.reponse.nom}}.png">
+
+            </a>
          </div>
+         <div drag-item drag-enabled="true" class="drag-item {{lettres2Ctrl.solution1.nom}}" drag-id="animal1">
+            <audio id="audio2" ng-src="{{lettres2Ctrl.solution1_cri}}" autostart="false" class=""></audio>
+            <a data-ng-click="lettres2Ctrl.animauxPlay($event)" class="animaux_lettre"><img ng-src="img/{{lettres2Ctrl.solution1.nom}}.png">
+
+            </a>
+         </div>
+         <div drag-item drag-enabled="true" class="drag-item {{lettres2Ctrl.solution2.nom}}" drag-id="animal2">
+            <audio id="audio3" ng-src="{{lettres2Ctrl.solution2_cri}}" autostart="false" class=""></audio>
+            <a data-ng-click="lettres2Ctrl.animauxPlay($event)" class="animaux_lettre"><img ng-src="img/{{lettres2Ctrl.solution2.nom}}.png">
+            </a>
+         </div>
+      </center>
+
+
+
+
+
    </div>
 </div>

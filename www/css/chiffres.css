@@ -8,6 +8,44 @@
 	height : 50%;*/
 	vertical-align: middle;
 }
+i.ion-android-hand{font-size: 60px; display: block;    width: 60px;
+    margin: 0 auto;}
+.drop-ex{
+
+    display: inline-block;
+    border: solid 1px #000;
+    width: 100px;
+    height: 200px;
+    vertical-align: middle;
+}
+/*.chiffres_test .drag-item.solution1.in-reponse{transform: translate(0,0) !important;}*/
+}
+@keyframes circle {
+    from { transform:rotate(340deg); }
+    to { transform:rotate(360deg); }
+}
+
+@keyframes inner-circle {
+    from { transform:translate(0px,0px); }
+    to { transform:translate(120px,-160px); }
+}
+.chiffres div.reponse{   animation: inner-circle 3.5s linear infinite;   transform-origin:50% 200px;}
+.chiffres #reponse{    animation: circle 3.5s linear infinite;}
+
+
+.chiffres .reponses>div{
+
+  display: inline-block;
+  width: calc(33% - 4px);
+  vertical-align: top;
+
+}
+.chiffres .reponses>div>div{
+
+  display: inline-block;
+
+
+}
 .chiffres_test .drop-content{
  
  margin:0;
@@ -37,8 +75,8 @@
 .chiffres_test .drag-item {
 	display: inline-block;
     vertical-align: top;
-    margin: 0 20px;
-
+        margin: 0 10px;
+    width: calc(33% - 22px);
 }
 .chiffre1,.resultat{
 	display: inline-block;
@@ -53,6 +91,7 @@
 
 .chiffres.has-header {
     text-align: center;
+    top: 44px;
 }
 
 .arrow-right {
@@ -60,8 +99,8 @@
   height: 0; 
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  margin-top: 10%;
-  border-left: 40px solid blue;
+  margin-top: 3%;
+  border-left: 40px solid #9f9fb1;
   margin-left: auto;
   margin-right: auto;
 }

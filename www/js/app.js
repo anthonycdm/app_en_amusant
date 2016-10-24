@@ -76,8 +76,8 @@ angular.module('app', ['ionic','laneolson.ui.dragdrop'])
         return $sce.trustAsResourceUrl(val);
     };
 }])
-/*.filter('reverse', function() {
+.filter('reverse', function() {
   return function(items) {
     return items.slice().reverse();
   };
-})*/
+})

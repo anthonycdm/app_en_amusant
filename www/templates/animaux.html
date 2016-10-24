@@ -6,23 +6,23 @@
 
 <div class="content has-header animaux" ng-init="animauxCtrl.getAnimaux()">
 
-   <div drag-and-drop class="drag-container" on-drag-enter="animauxCtrl.dragEnter(draggable, droppable)" on-drag-end="animauxCtrl.dragEnd(draggable, droppable)">
+   <div drag-and-drop class="drag-container" on-drag-enter="animauxCtrl.dragEnter(draggable, droppable)" on-item-placed="animauxCtrl.dragEnd(draggable, droppable)" on-drag-leave="animauxCtrl.dragLeave(draggable, droppable)">
 
-      <div class="animal_container" ng-repeat="animal in animauxCtrl.animalData|limitTo:2">
-         <div drag-item drag-enabled="true" class="drag-item {{animal.nom}}" drag-id="{{'animal'+animal.id}}">
+      <div class="animal_container">
+         <div drag-item drag-enabled="true" class="drag-item {{animal.nom}}" drag-id="{{'animal'+animal.id}}" ng-repeat="animal in animauxCtrl.animalData|limitTo:2">
             <div id="animal{{animal.id}}" class="animal-drag "><img ng-src="img/{{animal.nom}}.png" alt="{{animal.nom}}">
             </div>
          </div>
-
-         <drop-spot max-items="1" class="drop-spot" drop-id="{{'animal'+animal.id}}">
-            <div id="son{{animal.id}}">
-               <audio id="{{'audio'+animal.id}}" ng-src="{{'sons/'+animal.cri | trustAsResourceUrl}}" autostart="false" class="{{animal.nom}}">
+         <div class="drop_container" ng-repeat="sound in animauxCtrl.soundData|limitTo:2">
+         <drop-spot max-items="1" class="drop-spot" drop-id="{{'animal'+sound.id}}" >
+            <div id="son{{sound.id}}">
+               <audio id="{{'audio'+sound.id}}" ng-src="{{'sons/'+sound.cri | trustAsResourceUrl}}" autostart="false" class="{{sound.nom}}">
 
                </audio>
-               <a data-ng-click="animauxCtrl.animauxPlay($event)"><i class="ion-volume-medium"></i></a>
+               <a data-ng-click="animauxCtrl.animauxPlay($event)"><i class="ion-volume-medium"></i><!--<i class="ion-checkmark-round"></i>--></a>
             </div>
          </drop-spot>
-
+      </div>
       </div>
    </div>
 </div>

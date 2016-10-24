@@ -108,10 +108,7 @@ angular.module('app')
 
             console.log('drag end');
             draggable.addClass('hide');
-            ctC.page++;
-            $state.go($state.current, {
-               page: ctC.page++
-            });
+           
 
             $ionicLoading.show({
                animation: 'fade-in'
@@ -124,9 +121,66 @@ angular.module('app')
             console.log(draggable);
             console.log(droppable);
 
+
+
+
+
+
+
+           ctC.showAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+               title: 'Bravo!',
+               template: '',
+                buttons: [{ text: 'Suivant' }]
+            });
+
+             $timeout(function() {
+                alertPopup.close(); 
+                
+             }, 3000);
+  
+
+            alertPopup.then(function(res) { 
+
+               ctC.page++;
+               $state.go($state.current, {
+                  page: ctC.page++
+               });
+                
+            });
+
+          
+         };
+
+         $ionicLoading.show({
+               animation: 'fade-in'
+            });
+         $timeout(function() {
+            $ionicLoading.hide();
+
+            ctC.showAlert();
+         }, 1000);
+
+
+
          }
-         else
+         else{
             document.getElementById("essaie").play();
+            angular.element(document.querySelector(".drop-spot.reponse")).css({'background':'#f00'})
+               console.log(draggable);
+
+            $timeout(function() {
+             angular.element(document.querySelector(".drop-spot.reponse")).css({'background':'none'})
+             $timeout(function() {
+               angular.element(document.querySelector(".drag-item.solution1")).css({'transform':'translate(0px,0px)'})
+               angular.element(document.querySelector(".drag-item.solution2")).css({'transform':'translate(0px,0px)'})
+
+         }, 1000);
+
+
+         }, 1000);
+
+         }
 
 
 

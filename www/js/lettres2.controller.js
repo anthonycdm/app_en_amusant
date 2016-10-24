@@ -96,9 +96,8 @@ angular.module('app')
          $timeout(function() {
                   $ionicLoading.hide();
           }, 1000);
-
-
          var arr = [];
+         
          while (arr.length < 3) {
             var randomnumber = Math.floor(Math.random() * data.length) + 1;
             var found = false;
@@ -115,11 +114,22 @@ angular.module('app')
        
          lC.reponse = data[arr[0]-1];
          lC.solution1 = data[arr[1]-1];
-         lC.solution2 = data[arr[2]-1];
+         lC.solution2 = data[arr[2]-1];  
          lC.rand_lettres =  lC.reponse.nom.charAt(0);
+
          while(lC.rand_lettres === lC.solution1.nom.charAt(0) && lC.rand_lettres === lC.solution2.nom.charAt(0)){
 
-                    // lC.reponse = data[arr[0]-1];
+            for (var i = 0; i < arr.length; i++) {
+               if (arr[i] == randomnumber) {
+                  found = true;
+                  break
+               }
+            }
+            if (!found) arr[arr.length] = randomnumber;
+             lC.reponse = data[arr[0]-1];
+             lC.rand_lettres =  lC.reponse.nom.charAt(0);
+             console.log('into the while')
+
 
          }
          lC.lettre_son = $sce.trustAsResourceUrl('sons/sons_lettres/' + lC.rand_lettres+'.wav');

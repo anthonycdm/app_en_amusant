@@ -6,6 +6,7 @@ angular.module('app')
       aC.page = $stateParams.page;
       aC.animauxPlay = function(event) {
          angular.element(event.currentTarget.previousElementSibling.play());
+         
 
       }
 
@@ -47,32 +48,66 @@ angular.module('app')
 
       aC.dragEnd = function(draggable, droppable) {
 
-         if (draggable.dragId === droppable.dropId && (draggable.dragId != undefined || droppable.dropId != undefined) && (draggable.dragId != null || droppable.dropId != null)) {
 
-          if(aC.page != 7)
-           document.getElementById("bien").play();
 
+         if (angular.element(draggable)[0].dragId === angular.element(droppable)[0].dropId ) {
+
+          if(aC.page != pageEnd){
+          document.getElementById("bien").play();
             console.log('drag end');
-            draggable.addClass('hide');
-            aC.page++;
-            $state.go($state.current, {
+            angular.element(draggable)[0].addClass('hide');
+            //angular.element(droppable)[0].addClass('hide');
+       if ( document.querySelectorAll('.drag-item.hide').length == 3) {
+
+
+
+
+           aC.showAlert = function() {
+            var alertPopup = $ionicPopup.alert({
+               title: 'Bravo!',
+               template: '',
+                buttons: [{ text: 'Suivant' }]
+            });
+
+             $timeout(function() {
+                alertPopup.close(); 
+                
+             }, 3000);
+  
+
+            alertPopup.then(function(res) {
+                 aC.page++;
+            
+               $state.go($state.current, {
                page: aC.page++
             });
 
-            $ionicLoading.show({
+          
+            });
+         };
+
+         $ionicLoading.show({
                animation: 'fade-in'
             });
+         $timeout(function() {
+            $ionicLoading.hide();
 
-            $timeout(function() {
-               $ionicLoading.hide();
-            }, 1000);
+            aC.showAlert();
+         }, 1000);
 
-            console.log(draggable);
-            console.log(droppable);
+
+
+         
 
          }
-         else
-          document.getElementById("essaie").play();
+
+          }
+
+
+         }
+         else{document.getElementById("essaie").play();}
+         console.log('drop');
+         
 
 
 
@@ -93,7 +128,7 @@ angular.module('app')
       aC.getAnimaux = function() {
          $http.get('js/animal.json')
             .success(function(data) {
-               console.log('Data avant sort : ', data);
+               //console.log('Data avant sort : ', data);
 
                $timeout(function() {
                   $ionicLoading.hide();
@@ -102,48 +137,19 @@ angular.module('app')
                   return 0.5 - Math.random()
                });
 
-               aC.animalData = data;
-               console.log('Data après sort : ', data);
+               aC.animalData = data.slice(0, 3);
+               aC.soundData = aC.animalData;
+               aC.soundData =  data.slice(0, 3).sort(function() {
+                  return Math.floor(Math.random() *  data.slice(0, 3).length)
+               });
+
+
+              
+               console.log(aC.animalData )
+               console.log(aC.soundData )
+
 
                
-
-               /*  var nombre1 = Math.floor(Math.random() * data.length),
-                     nombre2 = Math.floor(Math.random() * data.length),
-                     random_boolean = Math.random() >= 0.5 ? 0 : 1,
-                     id_son1 = document.querySelector('.animal1'),
-                     id_son2 = document.querySelector('.animal2');
-
-
-
-                 console.log(random_boolean);
-                 console.log(id_son1);
-                 while (nombre1 === nombre2) {
-
-                     nombre2 = Math.floor(Math.random() * data.length);
-
-                 }
-
-
-                 aC.animal1 = data[nombre1].nom;
-                 aC.animal2 = data[nombre2].nom;
-                 aC.son1 = $sce.trustAsResourceUrl('sons/' + data[nombre1].cri);
-                 aC.son2 = $sce.trustAsResourceUrl('sons/' + data[nombre2].cri);
-
-                  if (random_boolean === 1){
-
-                     id_son1.className += ' reverse';
-                     var sounds = document.querySelector('.sound_container');
-                     sounds.insertBefore(id_son2,id_son1);
-                     
-                 }
-                 else if (random_boolean === 0){
-
-
-                     id_son1.className = 'drop-spot animal1';
-                     
-
-                 }*/
-
             })
             .error(function() {
                console.log('Fichier pas trouvé : animal.json');

@@ -4,9 +4,52 @@
 
 </ion-header-bar>
 <div class="content has-header chiffres">
-   <img src="img/{{image1}}" class="picture col-40" /><span class="operation col-20">+</span><img src="img/{{image1}}" class="picture col-40" />
+   <!--<img src="img/{{image1}}" class="picture col-40" /><span class="operation col-20">+</span><img src="img/{{image1}}" class="picture col-40" />
    <div class="operation">=</div>
    <div class="res"><img src="img/{{image1}}" class="picture col-40" /><span class=" col-20">&nbsp;</span><img src="img/{{image1}}" class="picture col-40" />
-   </div>
+   </div>-->
+      <div class="maths">
+         <div class="chiffre1"><img ng-src="img/cochon.png" alt="">
+         </div>
+         <span class="operation col-20">+</span>
+         <div class="drop-ex">
+            <div class="drag col-40"></div>
+         </div>
+         <div class="operation">=</div>
+         <div class="resultat"><img ng-src="img/cochon.png" alt=""><img ng-src="img/cochon.png" alt="">
+         </div>
+      </div>
+
+
+
+      <div class="reponses">
+         <div class="reponse" >
+            <div id="reponse"><img ng-src="img/cochon.png" alt="">
+            </div><i class="ion-android-hand"></i>
+            
+         </div>
+         <div class="solution1" >
+            <div id="solution1"><img ng-src="img/cochon.png" alt=""><img ng-src="img/cochon.png" alt=""><img ng-src="img/cochon.png" alt="">
+            </div>
+         </div>
+         <div  class=" solution2" >
+            <div id="solution2"><img ng-src="img/cochon.png" alt=""><img ng-src="img/cochon.png" alt="">
+            </div>
+         </div>
+
+      </div>
    <div class="arrow-right" ng-click="chiffresCtrl.next()"></div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+   

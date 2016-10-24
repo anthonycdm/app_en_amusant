@@ -1,35 +1,39 @@
 /****************** Animaux *********************/
-.animaux .animal_container{ width: calc(50% - 4px); display: inline-block; text-align: center;}
-.animaux  .drop-spot{display: inline-block; width: calc(50% - 4px); height: 160px;}
+.animaux .drag-item,.animaux .drop_container{ width: calc(50% - 4px); display: inline-block; text-align: center;}
+.animaux  .drop-spot{/*display: inline-block; width: calc(50% - 4px); height: 160px;*/display: block;
+    width: 100%;
+    height: 200px;}
 /*.animaux div.sound_container .reverse{float:right;}*/
 .drag-container{text-align: center}
 /******************** Commun ********************/
 .popup-buttons button.button{background: #c0ff70}
-.animaux div.sound_container div a,.animaux2 div.sound_container div a{text-align: center;max-width: 150px; width: 80%;margin: 0 auto; display: block;}
  div.drop-content div a i{font-size: 90px;}
-.animaux img, .animaux2 img{   max-width: 100%;    max-height: 160px;    margin: 0 auto; }
+.animaux img, .animaux2 img{   max-width: 100%;    max-height: 105px;    margin: 0 auto; }
 .animaux .has-header,.animaux2 .has-header {   text-align: center;}
+/*div.drag-item{     max-width: 200px;    max-height: 160px;    margin: 0 auto;    width: auto;}*/
 /*.reverse-r{float: right;}
 .reverse-l{float: left;}
 */
+div.drop-content div a i.ion-checkmark-round{display: none; font-size: 90px; color:#0c3;}
+div.drop-content.drop-full div a i.ion-checkmark-round{display: block;}
+div.drop-content.drop-full div a i.ion-volume-medium{display: none;}
+.drop-spot a.activated i{color: #3b247d}
 /****************** Animaux 2 *********************/
 
-.animaux2 .animal_container{ width: calc(33% - 4px); display: inline-block; }
+.animaux2 .drag-item,.animaux2 .drop_container{ width: calc(33% - 4px); display: inline-block; }
 .animaux2  .drop-spot{  display: block; }
 .animaux2 .drop-content a{text-align: center; display: block;}
 /*.animaux2  .drop-spot{display: inline-block; width: calc(33% - 4px);}*/
 
-.drop-one.drop-hovering .drop-content i,
-.drop-two.drop-hovering .drop-content i,
-.drop-three.drop-hovering .drop-content i {
-        color: #0c3;
+.drop-hovering .drop-content i {
+        border:solid 1px  #0c3;
       }
 
-/*.hide,
-.animaux .drag-item.hide,
+.hide,
+.animaux .drag-item.hide/*,
 .drop-full,
-.animaux div.sound_container div.drop-content.drop-full
-{display: none;}*/
+.animaux  div.drop-content.drop-full*/
+{display: none;}
 
 /*.sound_container{
 
