@@ -1,6 +1,6 @@
 <ion-header-bar align-title="center" class="">
    <button class="button button-icon icon ion-arrow-left-c flat" ng-click="animaux2Ctrl.back()"></button>
-   <h1 class="title title-center header-item">Animaux</h1>
+   <h1 class="title title-center header-item">Animaux ({{animaux2Ctrl.page+7}}/14)</h1>
 
 </ion-header-bar>
 <div class="content has-header animaux2" ng-init="animaux2Ctrl.getAnimaux()">
@@ -21,7 +21,7 @@
                <a data-ng-click="animaux2Ctrl.animauxPlay($event)"><i class="ion-volume-medium"></i></a>
             </div>
          </drop-spot>
-
       </div>
    </div>
 </div>
+   <div class="pagination">{{animaux2Ctrl.page}}/7</div>

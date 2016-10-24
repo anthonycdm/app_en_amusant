@@ -84,3 +84,4 @@ angular.module('app', ['ionic','laneolson.ui.dragdrop'])
     return items.slice().reverse();
   };
 })*/
+
