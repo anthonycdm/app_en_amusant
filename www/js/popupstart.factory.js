@@ -10,6 +10,7 @@ this.showAlert = function() {
               alertPopup.close();
             });
 
+
              $timeout(function() {
                 alertPopup.close(); 
                 
