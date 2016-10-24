@@ -1,7 +1,7 @@
 angular.module('app', ['ionic','laneolson.ui.dragdrop'])
 
 
-.run(function($ionicPlatform,popupstartFactory) {
+.run( function($ionicPlatform,popupstartFactory) {
 
   $ionicPlatform.ready(function() {
     

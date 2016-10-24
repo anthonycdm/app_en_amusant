@@ -6,6 +6,10 @@ this.showAlert = function() {
                buttons : [{ text: 'OK' }]
             });
 
+               alertPopup.then(function(res) {
+              alertPopup.close();
+            });
+
              $timeout(function() {
                 alertPopup.close(); 
                 
