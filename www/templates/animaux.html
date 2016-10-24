@@ -1,9 +1,8 @@
 <ion-header-bar align-title="center" class="">
    <button class="button button-icon icon ion-arrow-left-c flat" ng-click="animauxCtrl.back()"></button>
-   <h1 class="title title-center header-item">Animaux</h1>
+   <h1 class="title title-center header-item">Animaux ({{animauxCtrl.page}}/14)</h1>
 
 </ion-header-bar>
-
 <div class="content has-header animaux" ng-init="animauxCtrl.getAnimaux()">
 
    <div drag-and-drop class="drag-container" on-drag-enter="animauxCtrl.dragEnter(draggable, droppable)" on-item-placed="animauxCtrl.dragEnd(draggable, droppable)" on-drag-leave="animauxCtrl.dragLeave(draggable, droppable)">
@@ -14,15 +13,16 @@
             </div>
          </div>
          <div class="drop_container" ng-repeat="sound in animauxCtrl.soundData|limitTo:2">
-         <drop-spot max-items="1" class="drop-spot" drop-id="{{'animal'+sound.id}}" >
-            <div id="son{{sound.id}}">
-               <audio id="{{'audio'+sound.id}}" ng-src="{{'sons/'+sound.cri | trustAsResourceUrl}}" autostart="false" class="{{sound.nom}}">
+            <drop-spot max-items="1" class="drop-spot" drop-id="{{'animal'+sound.id}}" >
+               <div id="son{{sound.id}}">
+                  <audio id="{{'audio'+sound.id}}" ng-src="{{'sons/'+sound.cri | trustAsResourceUrl}}" autostart="false" class="{{sound.nom}}">
 
-               </audio>
-               <a data-ng-click="animauxCtrl.animauxPlay($event)"><i class="ion-volume-medium"></i><!--<i class="ion-checkmark-round"></i>--></a>
-            </div>
-         </drop-spot>
-      </div>
+                  </audio>
+                  <a data-ng-click="animauxCtrl.animauxPlay($event)"><i class="ion-volume-medium"></i><!--<i class="ion-checkmark-round"></i>--></a>
+               </div>
+            </drop-spot>
+         </div>
+
       </div>
    </div>
 </div>

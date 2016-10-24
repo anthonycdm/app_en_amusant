@@ -1,6 +1,6 @@
 <ion-header-bar align-title="center" class="">
    <button class="button button-icon icon ion-arrow-left-c flat" ng-click="lettres2Ctrl.back()"></button>
-   <h1 class="title title-center header-item">Lettres</h1>
+   <h1 class="title title-center header-item">Lettres ({{lettres2Ctrl.page}}/7)</h1>
 </ion-header-bar>
 <div class="content has-header lettres" ng-init="lettres2Ctrl.getAnimaux()">
    <div drag-and-drop class="drag-container" on-drag-enter="lettres2Ctrl.dragEnter(draggable,droppable)" on-drag-end="lettres2Ctrl.dragEnd(draggable,droppable)">
