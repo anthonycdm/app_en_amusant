@@ -1,6 +1,8 @@
 angular.module('app', ['ionic','laneolson.ui.dragdrop'])
 
-.run(function($ionicPlatform) {
+
+.run(function($ionicPlatform,popupstartFactory) {
+
   $ionicPlatform.ready(function() {
     
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -11,6 +13,7 @@ angular.module('app', ['ionic','laneolson.ui.dragdrop'])
     if (window.StatusBar) {
       StatusBar.styleDefault();
     }
+    popupstartFactory.showAlert();
   });
 })
 
