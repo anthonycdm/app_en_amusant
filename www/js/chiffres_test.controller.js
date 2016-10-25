@@ -110,47 +110,29 @@ angular.module('app')
 
             if(ctC.page != 7)
             document.getElementById("bien").play();
+            this.popup_active = true;  
 
-            console.log('drag end');
-            draggable.addClass('hide');
-           
+             $timeout(function() {                            
+                  console.log('drag end');
+                  draggable.addClass('hide');
+                  ctC.page++;
+                  $state.go($state.current, {
+                     page: ctC.page++
+                  });
+                  }, 1000);   
 
-            $ionicLoading.show({
-               animation: 'fade-in'
-            });
+                  $ionicLoading.show({
+                     animation: 'fade-in'
+                  });
 
-            $timeout(function() {
-               $ionicLoading.hide();
-            }, 1000);
-
-            console.log(draggable);
-            console.log(droppable);
-
-
-           ctC.showAlert = function() {
-
-            this.popup_active = true;
-             $timeout(function() {
-                ctC.page++;
-               $state.go($state.current, {
-                  page: ctC.page++
-               });
-                
-             }, 2000);
+                  $timeout(function() {
+                     $ionicLoading.hide();
+                  }, 1000);
           
-         };
+                  console.log(draggable);
+                  console.log(droppable);
 
-         $ionicLoading.show({
-               animation: 'fade-in'
-            });
-         $timeout(function() {
-            $ionicLoading.hide();
-
-            ctC.showAlert();
-         }, 1000);
-
-
-
+                   
          }
          else{
             document.getElementById("essaie").play();
