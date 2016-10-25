@@ -63,8 +63,9 @@ angular.module('app')
       lC.dragEnd = function(draggable, droppable) {
        if (draggable.dragId === droppable.dropId && (draggable.dragId != undefined || droppable.dropId != undefined) && (draggable.dragId != null || droppable.dropId != null)) {
 
-                  if(lC.page != 7)
+                  if(lC.page != 7){
                      document.getElementById("bien").play();
+                 
                   console.log('drag end');
                   draggable.addClass('hide');
                   lC.page++;
@@ -82,10 +83,18 @@ angular.module('app')
 
                   console.log(draggable);
                   console.log(droppable);
+                   }
 
                }
-               else
+               else{
                   document.getElementById("essaie").play();
+                     $timeout(function() {
+               angular.element(document.querySelector(".drag-item.solution1")).css({'transform':'translate(0px,0px)'})
+               angular.element(document.querySelector(".drag-item.solution2")).css({'transform':'translate(0px,0px)'})
+
+         }, 2000);
+
+               }
       }
 
       lC.getAnimaux = function() {
@@ -93,6 +102,8 @@ angular.module('app')
          $http.get('js/animal.json')
             .success(function(data) {
 
+
+        
          $timeout(function() {
                   $ionicLoading.hide();
           }, 1000);
@@ -117,7 +128,28 @@ angular.module('app')
          lC.solution2 = data[arr[2]-1];  
          lC.rand_lettres =  lC.reponse.nom.charAt(0);
 
-         while(lC.rand_lettres === lC.solution1.nom.charAt(0) && lC.rand_lettres === lC.solution2.nom.charAt(0)){
+          var pos_array = [data[arr[0]-1],data[arr[1]-1],data[arr[2]-1]];
+
+         pos_array = pos_array.sort(function() {
+                  return Math.floor(Math.random() *  pos_array.length);
+               });
+         lC.pos_array = pos_array;
+         lC.getImgGenerated = function(num) {
+            return new Array(num);
+         }
+         var dragIdArray = new Array();
+         dragIdArray[pos_array.indexOf(data[arr[0]-1])] = 'reponse';
+         dragIdArray[pos_array.indexOf(data[arr[1]-1])] = 'solution1';
+         dragIdArray[pos_array.indexOf(data[arr[2]-1])] = 'solution2'; 
+         lC.dragIdArray = dragIdArray;
+
+         console.log('Pos Array '+ pos_array[0].nom,pos_array[1].nom,pos_array[2].nom);
+         console.log(lC.dragIdArray)
+       //  console.log(pos_array.indexOf(arr[3]));
+
+
+
+        /* while(lC.rand_lettres === lC.solution1.nom.charAt(0) && lC.rand_lettres === lC.solution2.nom.charAt(0)){
 
             for (var i = 0; i < arr.length; i++) {
                if (arr[i] == randomnumber) {
@@ -131,11 +163,8 @@ angular.module('app')
              console.log('into the while')
 
 
-         }
-         lC.lettre_son = $sce.trustAsResourceUrl('sons/sons_lettres/' + lC.rand_lettres+'.wav');
-         lC.reponse_cri=  $sce.trustAsResourceUrl('sons/' + lC.reponse.cri);
-         lC.solution1_cri =  $sce.trustAsResourceUrl('sons/' + lC.solution1.cri);
-         lC.solution2_cri =  $sce.trustAsResourceUrl('sons/' + lC.solution2.cri);
+         }*/
+       
             })
             .error(function() {
                console.log('Fichier pas trouvé : animal.json');

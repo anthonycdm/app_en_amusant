@@ -1,5 +1,14 @@
 /****************** Animaux *********************/
-.animaux .drag-item,.animaux .drop_container{ width: calc(50% - 4px); display: inline-block; text-align: center;}
+.animaux .drop_container {
+    width: calc(50% - 4px);
+    display: inline-block;
+    text-align: center;
+}
+/*.animaux .drop_container:nth-child(3) { left: 0; }
+.animaux .drop_container:nth-child(4) { right: 0; }*/
+.animaux .drag-item{/* width: calc(50% - 4px);*/ display: inline-block; text-align: center;}
+/*.animaux .drag-item:nth-child(1){margin-right:10%;}
+.animaux .drag-item:nth-child(2){margin-left:10%;}*/
 .animaux  .drop-spot{/*display: inline-block; width: calc(50% - 4px); height: 160px;*/display: block;
     width: 100%;
     height: 200px;}
@@ -15,8 +24,8 @@
 .reverse-l{float: left;}
 */
 div.drop-content div a i.ion-checkmark-round{display: none; font-size: 90px; color:#0c3;}
-div.drop-content.drop-full div a i.ion-checkmark-round{display: block;}
-div.drop-content.drop-full div a i.ion-volume-medium{display: none;}
+/*div.drop-content.drop-full div a i.ion-checkmark-round{display: block;}
+div.drop-content.drop-full div a i.ion-volume-medium{display: none;}*/
 .drop-spot a.activated i{color: #3b247d}
 /****************** Animaux 2 *********************/
 
@@ -29,11 +38,11 @@ div.drop-content.drop-full div a i.ion-volume-medium{display: none;}
         border:solid 1px  #0c3;
       }
 
-.hide,
+/*.hide,
 .animaux .drag-item.hide/*,
 .drop-full,
 .animaux  div.drop-content.drop-full*/
-{display: none;}
+/*{display: none;}
 
 /*.sound_container{
 

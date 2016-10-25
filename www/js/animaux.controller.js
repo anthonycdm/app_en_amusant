@@ -40,7 +40,7 @@ console.log(angular.element(droppable)[0])
           if(aC.page != pageEnd){
           document.getElementById("bien").play();
             console.log('drag end');
-            angular.element(draggable)[0].addClass('hide');
+            //angular.element(draggable)[0].addClass('hide');
             //angular.element(droppable)[0].addClass('hide');
        if ( document.querySelectorAll('.drag-item.hide').length == 2) {
 
