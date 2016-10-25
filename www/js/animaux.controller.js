@@ -1,6 +1,7 @@
 angular.module('app')
    .controller('animauxController', function($scope, $ionicHistory, $state, $stateParams,$ionicPopup, $ionicViewSwitcher, $http, $sce, $ionicLoading, $timeout) {
       aC = this;
+      aC.popup_active=false;
       var audios = document.getElementsByTagName('audio');
       var pageEnd = 7;
       aC.page = $stateParams.page;
@@ -48,27 +49,16 @@ console.log(angular.element(droppable)[0])
 
 
            aC.showAlert = function() {
-            var alertPopup = $ionicPopup.alert({
-               title: 'Bravo!',
-               template: '',
-                buttons: [{ text: 'Suivant' }]
-            });
 
+            this.popup_active = true;
              $timeout(function() {
-                alertPopup.close(); 
-                
-             }, 3000);
-  
-
-            alertPopup.then(function(res) {
-                 aC.page++;
-            
+                aC.page++;
                $state.go($state.current, {
-               page: aC.page++
-            });
-
+                  page: aC.page++
+               });
+                
+             }, 2000);
           
-            });
          };
 
          $ionicLoading.show({

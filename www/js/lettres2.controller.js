@@ -2,6 +2,7 @@ angular.module('app')
    .controller('lettres2Controller', function($scope, $ionicHistory,$ionicPopup, $state, $stateParams, $ionicViewSwitcher, $http, $sce, $ionicLoading, $timeout) {
 
       lC = this;
+      lC.popup_active=false;
       lC.page = $stateParams.page;
       var pageEnd = 7;
       var audios = document.getElementsByTagName('audio');
@@ -30,6 +31,19 @@ angular.module('app')
          }, 1000);
 
       }
+
+      lC.showAlert = function() {
+
+            this.popup_active = true;
+             $timeout(function() {
+                lC.page++;
+               $state.go($state.current, {
+                  page: lC.page++
+               });
+                
+             }, 2000);
+          
+         };
 
     
      lC.animauxPlay = function(event) {
