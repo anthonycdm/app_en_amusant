@@ -10,7 +10,6 @@ angular.module('app')
 
          document.getElementById("bravo").play();
 
-         ctC.showAlert = function() {
             var alertPopup = $ionicPopup.alert({
                title: 'Félicitations!',
                template: 'Bravo tu as réussi  l\'exercice'
@@ -19,7 +18,6 @@ angular.module('app')
             alertPopup.then(function(res) {
                $state.go('accueil');
             });
-         };
          $timeout(function() {
             ctC.showAlert();
          }, 1000);

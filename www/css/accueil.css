@@ -118,14 +118,21 @@ h2.title{
     font-size: 200%;
 }
 
-.popup {
+.popup_bien {
     z-index: 3;
   position: absolute;
   top : 30%;
   left : 30%;
+ /* -webkit-animation: popup-anim 0.5s infinite; 
+  animation: popup-anim 0.5s infinite;*/
 }
 
 .pop {
     width : 150px;
     height: 150px;
+}
+
+@keyframes popup-anim {
+    from { transform:translate(0px,0px); }
+    to { transform:translate(0px,-5px); }
 }
