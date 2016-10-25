@@ -38,11 +38,10 @@ console.log(angular.element(droppable)[0])
 
          if (angular.element(draggable)[0].dragId === angular.element(droppable)[0].dropId ) {
 
-          if(aC.page != pageEnd){
+          if(aC.page != pageEnd)
           document.getElementById("bien").play();
             console.log('drag end');
-            //angular.element(draggable)[0].addClass('hide');
-            //angular.element(droppable)[0].addClass('hide');
+            angular.element(draggable)[0].addClass('hide');
        if ( document.querySelectorAll('.drag-item.hide').length == 2) {
 
 
@@ -76,7 +75,7 @@ console.log(angular.element(droppable)[0])
 
          }
 
-          }
+          
 
 
          }
