@@ -127,7 +127,6 @@ angular.module('app')
             console.log(droppable);
 
 
-
            ctC.showAlert = function() {
 
             this.popup_active = true;

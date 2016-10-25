@@ -32,19 +32,6 @@ angular.module('app')
 
       }
 
-      lC.showAlert = function() {
-
-            this.popup_active = true;
-             $timeout(function() {
-                lC.page++;
-               $state.go($state.current, {
-                  page: lC.page++
-               });
-                
-             }, 2000);
-          
-         };
-
     
      lC.animauxPlay = function(event) {
          angular.element(event.currentTarget.previousElementSibling.play());
@@ -78,14 +65,17 @@ angular.module('app')
        if (draggable.dragId === droppable.dropId && (draggable.dragId != undefined || droppable.dropId != undefined) && (draggable.dragId != null || droppable.dropId != null)) {
 
                   if(lC.page != 7){
-                     document.getElementById("bien").play();
-                 
+                     document.getElementById("bien").play(); 
+                     this.popup_active = true;  
+
+                  $timeout(function() {                            
                   console.log('drag end');
                   draggable.addClass('hide');
                   lC.page++;
                   $state.go($state.current, {
                      page: lC.page++
                   });
+                  }, 1000);   
 
                   $ionicLoading.show({
                      animation: 'fade-in'
@@ -94,9 +84,10 @@ angular.module('app')
                   $timeout(function() {
                      $ionicLoading.hide();
                   }, 1000);
-
+          
                   console.log(draggable);
                   console.log(droppable);
+
                    }
 
                }
