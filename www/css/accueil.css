@@ -120,9 +120,12 @@ h2.title{
 
 .popup {
     z-index: 3;
-  width: 150px;
-  height: 150px;
   position: absolute;
   top : 30%;
-  left : 15%;
+  left : 30%;
+}
+
+.pop {
+    width : 150px;
+    height: 150px;
 }
