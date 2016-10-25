@@ -3,7 +3,7 @@ angular.module('app')
 
 
       ctC = this;
-
+      ctC.popup_active = false;
       ctC.page = $stateParams.page;
       if (ctC.page > 7) {
          //page = 0;
@@ -128,32 +128,16 @@ angular.module('app')
 
 
 
-
-
-
-
            ctC.showAlert = function() {
-            var alertPopup = $ionicPopup.alert({
-               title: 'Bravo!',
-               template: '',
-                buttons: [{ text: 'Suivant' }]
-            });
 
+            this.popup_active = true;
              $timeout(function() {
-                alertPopup.close(); 
-                
-             }, 3000);
-  
-
-            alertPopup.then(function(res) { 
-
-               ctC.page++;
+                ctC.page++;
                $state.go($state.current, {
                   page: ctC.page++
                });
                 
-            });
-
+             }, 2000);
           
          };
 

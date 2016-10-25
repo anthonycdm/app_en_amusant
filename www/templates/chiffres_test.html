@@ -1,9 +1,8 @@
+      <div class="popup" ng-show="chiffrestestCtrl.popup_active==true"><img src="../img/pouce_bleu.jpg" /></div>
 <ion-header-bar align-title="center" class="">
    <button class="button button-icon icon ion-arrow-left-c flat" ng-click="chiffrestestCtrl.back()"></button>
    <h1 class="title title-center header-item">Chiffres ({{chiffrestestCtrl.page}}/7)</h1>
-
 </ion-header-bar>
-
 <div class="content has-header chiffres_test" ng-init="chiffrestestCtrl.getChiffres()">
    <div drag-and-drop class="drag-container" on-drag-enter="chiffrestestCtrl.dragEnter(draggable, droppable)" on-drag-end="chiffrestestCtrl.dragEnd(draggable, droppable)">
       <div class="maths">
