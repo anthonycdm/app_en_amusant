@@ -29,7 +29,7 @@ div.drop-content.drop-full div a i.ion-volume-medium{display: none;}*/
 .drop-spot a.activated i{color: #3b247d}
 /****************** Animaux 2 *********************/
 
-.animaux2 .drag-item,.animaux2 .drop_container{ width: calc(33% - 4px); display: inline-block; }
+.animaux2 .drag-item,.animaux2 .drop_container{ /*width: calc(33% - 4px);*/ margin: 0 3%; display: inline-block; }
 .animaux2  .drop-spot{  display: block; }
 .animaux2 .drop-content a{text-align: center; display: block;}
 /*.animaux2  .drop-spot{display: inline-block; width: calc(33% - 4px);}*/
